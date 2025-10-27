@@ -18,7 +18,7 @@ The goal of this library is to offer a simple and standards-compliant package wr
 
 ## Requirements
 
-- PHP 8.4 or higher
+- PHP `8.4` or higher
 - `psr/http-message` ^2.0
 - `psr/http-factory` ^1.1
 
