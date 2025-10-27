@@ -37,18 +37,24 @@ composer require temant/http-core
 ## Usage Example
 
 ```php
-<?php
+<?php declare(strict_types=1);
+
+require_once __DIR__ . "/vendor/autoload.php";
 
 use Temant\HttpCore\Factory\RequestFactory;
 use Temant\HttpCore\Factory\ResponseFactory;
-use Temant\HttpCore.Factory\StreamFactory;
+use Temant\HttpCore\Factory\StreamFactory;
 
 // Create a request instance
-$request = (new RequestFactory())->createRequest('GET', 'https://example.com');
+$request = new RequestFactory()
+    ->createRequest('GET', 'https://example.com');
 
 // Create a response with text content
-$stream = (new StreamFactory())->createStream('Hello Temant');
-$response = (new ResponseFactory())->createResponse()
+$stream = new StreamFactory()
+    ->createStream('Hello Temant');
+
+$response = new ResponseFactory()
+    ->createResponse()
     ->withBody($stream);
 
 echo $response->getStatusCode(); // 200
