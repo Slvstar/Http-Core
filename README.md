@@ -8,7 +8,7 @@ The goal of this library is to offer a simple and standards-compliant package wr
 
 ## Features
 
-- Fully compliant with **PSR-7** and **PSR-17**
+- Fully compliant with [PSR-7](https://www.php-fig.org/psr/psr-7/) and [PSR-17](https://www.php-fig.org/psr/psr-17/)
 - Focused and minimal API surface
 - Immutable message objects
 - Supports all HTTP message components, including headers, bodies, uploaded files and URIs
