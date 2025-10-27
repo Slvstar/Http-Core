@@ -43,6 +43,7 @@ abstract class Message implements MessageInterface
     public string $protocolVersion = '1.1';
 
     private const string PROTOCOL_PATTERN = '/^(1\.[01]|2(?:\.0)?)$/';
+
     private const string HEADER_VALUE_PATTERN = "/[\r\n]/";
 
     /**
@@ -128,12 +129,9 @@ abstract class Message implements MessageInterface
         $value = $this->filterHeaderValue($value);
 
         $clone = clone $this;
-        if (isset($clone->headers[$normalized])) {
-            // append directly, duplicates allowed
-            $clone->headers[$normalized] = array_merge($clone->headers[$normalized], $value);
-        } else {
-            $clone->headers[$normalized] = $value;
-        }
+        $clone->headers[$normalized] = isset($clone->headers[$normalized])
+            ? array_merge($clone->headers[$normalized], $value)
+            : $value;
 
         return $clone;
     }
